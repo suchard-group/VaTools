@@ -79,7 +79,7 @@ translateToCustomVaSql <- function(ogfilepath,
 #' @importFrom dplyr %>%
 #' @export
 translateToCustomVaSqlText <- function(sql,
-                                   domainsInfile) {
+                                       domainsInfile) {
   # library(dplyr)
   ##Pull in SQL file
 
@@ -118,8 +118,7 @@ translateToCustomVaSqlText <- function(sql,
     dplyr::mutate(critord=dplyr::row_number())
 
   if (nrow(locs) == 0) {
-    SqlRender::writeSql(sql, targetFile=newfilepath)
-    return()
+    return(sql)
   }
 
   ##### ALTER SQL
